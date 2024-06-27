@@ -27,7 +27,7 @@ app.use(
         "https://fonts.gstatic.com",
         "https://cdnjs.cloudflare.com",
       ],
-      imgSrc: ["'self'", "https:", "data:"],
+      imgSrc: ["'self'"],
       connectSrc: ["'self'"],
       objectSrc: ["'none'"],
     },
@@ -40,10 +40,10 @@ app.disable("x-powered-by");
 app.use(credentials);
 app.use(cors(corsOptions));
 app.use(morgan("dev"));
-app.use(express.static(path.join(__dirname,"../public")));
+app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/*", function (req, res) {
-  return res.sendFile(path.join(__dirname,"../public","index.html"));
+  return res.sendFile(path.join(__dirname, "../public", "index.html"));
 });
 
 app.get("/random-quote", (req, res) => {
