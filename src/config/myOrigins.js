@@ -1,3 +1,3 @@
-const allowedOrigins = ["http://localhost:2500/"];
+const allowedOrigins = ["https://quotemark.vercel.app"];
 
 module.exports = allowedOrigins;
