@@ -36,19 +36,19 @@ app.use(
 
 app.set("trust proxy", 1);
 app.use(hpp());
-app.disable("x-powered-by");
+app.disable("x-powered-by");    
 app.use(credentials);
 app.use(cors(corsOptions));
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "../public")));
 
-app.get("/*", function (req, res) {
-  return res.sendFile(path.join(__dirname, "../public", "index.html"));
-});
-
 app.get("/random-quote", (req, res) => {
   let random = Math.floor(Math.random() * 480);
   return res.status(200).json(quotes[random]);
+});
+
+app.get("/*", function (req, res) {
+  return res.sendFile(path.join(__dirname, "../public", "index.html"));
 });
 
 app.listen(2500, (err) => {
